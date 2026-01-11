@@ -9,3 +9,6 @@
 dist/
 *.apk
 
+# Cursor IDE rules (local configuration)
+cursor/
+
