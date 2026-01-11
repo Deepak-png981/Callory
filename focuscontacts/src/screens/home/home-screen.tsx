@@ -38,11 +38,11 @@ export function HomeScreen({navigation}: Props) {
 
       <Card>
         <Row>
-          <View style={{gap: 4}}>
+          <View style={{gap: 4, flex: 1, paddingRight: 12}}>
             <Text variant="h3" weight="black">
               Allowed people
             </Text>
-            <Text tone="muted" variant="small">
+            <Text tone="muted" variant="small" numberOfLines={2}>
               These people can call you when a Mode is active.
             </Text>
           </View>

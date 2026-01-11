@@ -4,6 +4,7 @@ import {Pressable, StyleSheet, View} from 'react-native';
 import {Text} from '../ui/components/text';
 import {Icon} from '../ui/components/icon';
 import {useTheme} from '../ui/theme';
+import {useAppContext} from '../store/app-context';
 
 const icons: Record<
   string,
@@ -16,6 +17,7 @@ const icons: Record<
 
 export function PillTabBar({state, descriptors, navigation}: BottomTabBarProps) {
   const theme = useTheme();
+  const {state: appState} = useAppContext();
 
   return (
     <View style={[styles.container, {backgroundColor: theme.colors.background}]}>
@@ -34,6 +36,8 @@ export function PillTabBar({state, descriptors, navigation}: BottomTabBarProps) 
           };
 
           const icon = icons[route.name] ?? icons.homeTab;
+          const isModes = route.name === 'modesTab';
+          const dotColor = appState.focusEnabled ? theme.colors.success : theme.colors.textMuted;
 
           return (
             <Pressable
@@ -45,6 +49,7 @@ export function PillTabBar({state, descriptors, navigation}: BottomTabBarProps) 
               {isFocused ? <View style={[styles.itemBg, {borderRadius: 999, backgroundColor: theme.colors.primary}]} /> : null}
 
               <View style={styles.itemContent}>
+                {isModes ? <View style={[styles.dot, {backgroundColor: dotColor}]} /> : <View style={styles.dotSpacer} />}
                 <Icon
                   name={(isFocused ? icon.active : icon.inactive) as never}
                   size={20}
@@ -100,6 +105,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 4,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 999,
+    marginBottom: 2,
+  },
+  dotSpacer: {
+    width: 8,
+    height: 8,
+    marginBottom: 2,
+    opacity: 0,
   },
 });
 
