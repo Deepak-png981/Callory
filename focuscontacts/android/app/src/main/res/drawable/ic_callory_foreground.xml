@@ -1,0 +1,29 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Simple “C” monogram: ring with an opening -->
+    <!-- Zoomed out ~20%: scale 0.8 centered (translate=(1-0.8)*108/2=10.8) -->
+    <group
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:translateX="10.8"
+        android:translateY="10.8">
+        <path
+            android:fillColor="#FFFFFF"
+            android:fillType="evenOdd"
+            android:pathData="M54,16
+                C33,16 16,33 16,54
+                C16,75 33,92 54,92
+                C66,92 76.8,86.3 83.6,77.5
+                L73.4,69.6
+                C69.3,75.1 62.1,78.7 54,78.7
+                C40.4,78.7 29.3,67.6 29.3,54
+                C29.3,40.4 40.4,29.3 54,29.3
+                C62.1,29.3 69.3,32.9 73.4,38.4
+                L83.6,30.5
+                C76.8,21.7 66,16 54,16 Z" />
+    </group>
+</vector>
+
